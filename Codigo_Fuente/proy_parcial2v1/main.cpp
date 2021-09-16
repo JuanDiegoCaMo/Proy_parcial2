@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    string filename = "../proy_parcial2v1/images/image.jpg";
+    string filename = "../images/image.jpg";
     QImage im(filename.c_str());
 
     unsigned int pixelX = 200;
