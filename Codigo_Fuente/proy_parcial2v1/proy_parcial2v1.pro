@@ -5,9 +5,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         main.cpp \
-        pix.cpp \
         pix_mat.cpp
 
 HEADERS += \
-    pix.h \
     pix_mat.h
