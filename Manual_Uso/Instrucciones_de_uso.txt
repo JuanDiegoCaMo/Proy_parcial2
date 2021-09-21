@@ -1,0 +1,26 @@
+Manual de Uso General de los programas de representación de banderas en una pantalla de LEDs o Neopixeles
+
+Bienvenido a Informa2 S.A.S.
+
+Estimado usuario, se le informa de antemano que, con el fin de representar su imagen exitosamente en la matriz de neopixeles construida, debe hacer uso de 2 programas.
+(Por favor lea también las instrucciones dadas dentro de cada programa donde se le dará más detalle sobre cómo utilizar cada programa en específico)
+
+Para usar el primer programa, debe abrir, en el programa Qt, el archivo con extensión .pro localizado en la dirección:
+Codigo_Fuente > proy_parcial2v1 > proy_parcial2v1.pro 
+Y ejecútelo en Qt una vez abierto. Como se aclaró anteriormente, allí se le dará más detalle sobre cómo proceder.
+
+Una vez termine la ejecución del primer programa, debe buscar el archivo de texto "processed_img.txt" en la dirección:
+Codigo_Fuente > build-proy_parcial2v1-Desktop_Qt_5_12_2_MinGW_64_bit-Debug > processed_img.txt
+Cuando lo encuentre, por favor, ábralo dando doble click izquierdo sobre él y copie al portapapeles de su ordenador el contenido del mismo. 
+Una vez hecho este procedimiento, dirígase al siguiente enlace: https://www.tinkercad.com/things/k6B31iWihuP
+
+Al acceder a dicho enlace, por favor dé click izquierdo sobre el botón "Copiar y Modificar", el cual lo va a redirigir a otro enlace donde encontrará, en la parte
+superior izquierda, una serie de botones. Por favor, haga click izquierdo sobre el que dice "Iniciar simulación" y, posterior a ello, haga click izquierdo sobre el que
+dice "Código". Al oprimir este botón, se va a desplegar un recuadro en cuya sección inferior puede encontrar las palabras "Monitor en serie", dé click izquierdo sobre
+ellas, lo cual va a desplegar un recuadro blanco en el cual aparece una serie de instrucciones para usted, por favor léalas cuidadosamente pues allí se le darán las 
+indicaciones sobre cómo usar el segundo programa para obtener exitosamente la representación de la imagen de su bandera escogida en la matriz de neopixeles construida.
+
+Gracias por escogernos, 
+
+Informa2 S.A.S.
+
