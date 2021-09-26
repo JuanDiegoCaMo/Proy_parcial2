@@ -39,6 +39,7 @@
 \tableofcontents
 \newpage
 \section{Clases implementadas}
+Las clases implementadas para el presente proyecto, corresponde a la clase QImage, con la cual un objeto de dicha clase es capaz de almacenar una imagen al obtener su dirección y tanto leer como modificar el color de cada pixel que hace parte de la imagen. No obstante, para poder modificar el color de un pixel en específico de una posición en específico, uno de los parámetros que exige dicho método (setPixelColor) corresponde al uso de un objeto de la clase QColor, en el cual se almacenan los datos de los colores RGB que se le quieren asignar al pixel de la imagen en la posición (x,y) que se le defina. De este modo, la clase QColor también es usada dentro del proyecto. Como segunda clase, como se había planteado anteriormente en el informe de diseño de la solución, se plantea la creación de la clase "pixmat", la cual se encarga de almacenar como elementos los punteros auxiliares necesarios para la lectura de la imagen, así como los contenedores tipo vector necesarios para poder guardar los datos y acceder a ellos fácilmente, pues deben ser escritos en el archivo de texto para usar su contenido como la información que el usuario ingrese en el proyecto en Tinkercad cuando éste lo requiera.
 \section{Esquema de la estructura final de las clases implementadas}
 \section{Módulos de código implementado donde interactúan las diferentes clases}
 \section{Estructura del circuito montado}
@@ -471,6 +472,7 @@ void representar(){
   	delete [] neo_indx;
 }
 \end{lstlisting}
+Después de una serie de pruebas, se plantea que uno de los problemas constituye el hecho de no poder hacer que el usuario ingrese una menor cantidad de líneas, para que haga el menor esfuerzo. Por tal razón, se procede a buscar métodos para facilitar el ingreso de datos.
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
