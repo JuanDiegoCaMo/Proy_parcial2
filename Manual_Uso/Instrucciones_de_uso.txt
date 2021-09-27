@@ -9,7 +9,7 @@ Para usar el primer programa, debe abrir, en el programa Qt, el archivo con exte
 Codigo_Fuente > proy_parcial2v1 > proy_parcial2v1.pro 
 Y ejecútelo en Qt una vez abierto. Como se aclaró anteriormente, allí se le dará más detalle sobre cómo proceder.
 
-Una vez termine la ejecución del primer programa, debe buscar el archivo de texto "fileForTinkercad.txt" en la dirección:
+Una vez el primer programa le avise que su imagen ha sido procesada exitosamente, debe buscar el archivo de texto "fileForTinkercad.txt" en la dirección:
 Codigo_Fuente > build-proy_parcial2v1-Desktop_Qt_5_12_2_MinGW_64_bit-Debug > fileForTinkercad.txt
 Cuando lo encuentre, por favor, ábralo dando doble click izquierdo sobre él y manténgalo abierto. 
 Una vez hecho este procedimiento, dirígase al siguiente enlace: https://www.tinkercad.com/things/k6B31iWihuP

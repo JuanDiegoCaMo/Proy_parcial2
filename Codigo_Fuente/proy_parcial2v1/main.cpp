@@ -12,7 +12,7 @@ int main()
     cout << "  despues, haga clic derecho a la derecha de la ruta de la imagen en la barra de direcciones y escoja la opcion Copiar direccion como texto." << endl;
     cout << "  Finalmente, pegue la direccion aqui, cambie todos los backslash por slash y agregue el nombre de la imagen incluyendo su respectiva extension." << endl;
     cout << "  - Recuerde que el formato de la imagen debe ser en formato JPG si su imagen tiene un ancho o un alto superiores a 100 pixeles." << endl;
-    cout << " En caso de ser inferior a esta cifra en alguna de las dos medidas, asegúrese de que el formato de la imagen sea PNG." << endl;
+    cout << " En caso de ser inferior a esta cifra en alguna de las dos medidas, asegurese de que el formato de la imagen sea PNG." << endl;
     cout << "  Para ver el formato de su imagen, dirigase al explorador de archivos de su ordenador:" << endl;
     cout << "  Seccion Vista > Apartado Mostrar u Ocultar > Activar la casilla de Extensiones de nombre de archivo" << endl;
     cout << "  A continuacion, dirigase al lugar donde tiene guardada su imagen y fijese en el nombre de su imagen," << endl;
@@ -22,5 +22,7 @@ int main()
     getline(cin,filename);
     QImage im(filename.c_str());
     pix_mat matriz_pixeles(im);
+    cout << "La imagen dada ha sido procesada exitosamente. Ahora, por favor dirigase al archivo ubicado en la" << endl;
+    cout << " direccion especificada en el archivo instrucciones_de_uso.txt, ubicado en la carpeta Manual_Uso." << endl;
     return 0;
 }
