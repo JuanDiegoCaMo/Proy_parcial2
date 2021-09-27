@@ -1,5 +1,3 @@
-#include <iostream>
-#include <QImage>
 #include "pix_mat.h"
 
 using namespace std;

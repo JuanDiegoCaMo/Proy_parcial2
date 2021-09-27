@@ -1,10 +1,35 @@
 #include "pix_mat.h"
 
-#include <iostream>
 pix_mat::pix_mat(QImage image_dir)
 {
+    create_file("fileForTinkercad.txt");
     auxX = new int;
     auxY = new int;
+    if(*auxX == 8 && *auxY == 8) assignToPix(image_dir);
+    else if(*auxX < 8 || *auxY < 8){
+        sobremuestreo(image_dir, auxX, auxY);
+    }
+    else if(*auxX > 8 && *auxY > 8){
+        image_dir = subm_gen(image_dir, auxX, auxY);
+        submuestreo(image_dir, auxX, auxY);
+    }
+    string text = create_string();
+    write_file("fileForTinkercad.txt",text);
+}
+
+void pix_mat::assignToPix(QImage image_dir)
+{
+    for(int y = 0; y < *auxY; y++){
+        for(int x = 0; x < *auxX; x++){
+            pixel.push_back(short(image_dir.pixelColor(x,y).red()));
+            pixel.push_back(short(image_dir.pixelColor(x,y).green()));
+            pixel.push_back(short(image_dir.pixelColor(x,y).blue()));
+        }
+    }
+}
+
+QImage pix_mat::subm_gen(QImage image_dir, int *auxX, int *auxY)
+{
     for(int color = 0; color <= 2; color++){
         *auxX = image_dir.width();
         *auxY = image_dir.height();
@@ -28,24 +53,7 @@ pix_mat::pix_mat(QImage image_dir)
             *auxY = *auxY/2;
         }
     }
-    if(*auxX == 8 && *auxY == 8) assignToPix(image_dir);
-    else if(*auxX > 8 && *auxY > 8){
-        submuestreo(image_dir, auxX, auxY);
-    }
-    else if(*auxX < 8 && *auxY < 8){
-        sobremuestreo(image_dir, auxX, auxY);
-    }
-}
-
-void pix_mat::assignToPix(QImage image_dir)
-{
-    for(int y = 0; y < *auxY; y++){
-        for(int x = 0; x < *auxX; x++){
-            pixel.push_back(short(image_dir.pixelColor(x,y).red()));
-            pixel.push_back(short(image_dir.pixelColor(x,y).green()));
-            pixel.push_back(short(image_dir.pixelColor(x,y).blue()));
-        }
-    }
+    return image_dir;
 }
 
 void pix_mat::submuestreo(QImage image_dir, int *auxX, int *auxY)
@@ -133,11 +141,70 @@ void pix_mat::sobremuestreo(QImage image_dir, int *auxX, int *auxY)
         cout << endl;
     }
 */
-    int total = *auxX * *auxY;
-    int ix = 0, iy = 0;
+    *auxX = image_dir.width();
+    *auxY = image_dir.height();
+    QImage image(*auxX*16,*auxY*16,image_dir.format());
+    image.fill(QColor(1,1,1));
     for(int y = 0; y < *auxY; y++){
         for(int x = 0; x < *auxX; x++){
-
+            QColor tipo_color(image_dir.pixelColor(x,y).red(),image_dir.pixelColor(x,y).green(),image_dir.pixelColor(x,y).blue());
+            for(int indy = 16*y; indy < 16*(y+1); indy++){
+                for(int indx = 16*x; indx < 16*(x+1); indx++){
+                    image.setPixelColor(indx,indy,tipo_color);
+                }
+            }
         }
     }
+    *auxX = image.width();
+    *auxY = image.height();
+    image = subm_gen(image,auxX,auxY);
+    submuestreo(image,auxX,auxY);
+}
+
+void pix_mat::create_file(string name)
+{
+    fstream text(name, fstream::out);
+    text.close();
+}
+
+string pix_mat::create_string()
+{
+    string texto;
+    int cont = 0;
+    for(auto i = pixel.begin(); i != pixel.end(); i++){
+        if(*i >= 100){
+            for(int mult = 100; mult >= 1; mult/=10){
+                texto.push_back(char(*i/mult+48));
+                *i = *i - (*i/mult)*mult;
+            }
+        }
+        else if(*i >= 10){
+            for(int mult = 10; mult >= 1; mult/= 10){
+                texto.push_back(char(*i/mult+48));
+                *i = *i - (*i/mult)*mult;
+            }
+            texto.push_back('.');
+        }
+        else{
+            texto.push_back(char(*i+48));
+            texto.push_back('.');
+            texto.push_back('.');
+        }
+        if(!cont%3==2){
+            texto.push_back(',');
+        }
+        else{
+            texto.push_back(';');
+        }
+        if(cont%12==11) texto.push_back('\n');
+        cont++;
+    }
+    return texto;
+}
+
+void pix_mat::write_file(string name, string texto)
+{
+    fstream text(name, fstream::out);
+    text <<texto;
+    text.close();
 }
