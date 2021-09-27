@@ -1,5 +1,3 @@
-#include <iostream>
-#include <QImage>
 #include "pix_mat.h"
 
 using namespace std;
@@ -13,7 +11,8 @@ int main()
     cout << "  - Para conocer dicha direccion, ubiquese en el lugar del explorador de archivos de su ordenador donde se encuentra la imagen," << endl;
     cout << "  despues, haga clic derecho a la derecha de la ruta de la imagen en la barra de direcciones y escoja la opcion Copiar direccion como texto." << endl;
     cout << "  Finalmente, pegue la direccion aqui, cambie todos los backslash por slash y agregue el nombre de la imagen incluyendo su respectiva extension." << endl;
-    cout << "  - Recuerde que el formato de la imagen debe ser en formato JPG." << endl;
+    cout << "  - Recuerde que el formato de la imagen debe ser en formato JPG si su imagen tiene un ancho o un alto superiores a 100 pixeles." << endl;
+    cout << " En caso de ser inferior a esta cifra en alguna de las dos medidas, asegurese de que el formato de la imagen sea PNG." << endl;
     cout << "  Para ver el formato de su imagen, dirigase al explorador de archivos de su ordenador:" << endl;
     cout << "  Seccion Vista > Apartado Mostrar u Ocultar > Activar la casilla de Extensiones de nombre de archivo" << endl;
     cout << "  A continuacion, dirigase al lugar donde tiene guardada su imagen y fijese en el nombre de su imagen," << endl;
@@ -23,15 +22,7 @@ int main()
     getline(cin,filename);
     QImage im(filename.c_str());
     pix_mat matriz_pixeles(im);
-    unsigned int pixelX = 200;
-    unsigned int pixelY = 200;
-    cout << "Intensidad de rojo del pixel seleccionado: " << im.pixelColor(pixelX, pixelY).red() << endl;
-    cout << "Intensidad de verde del pixel seleccionado: " << im.pixelColor(pixelX, pixelY).green() << endl;
-    cout << "Intensidad de azul del pixel seleccionado: " << im.pixelColor(pixelX, pixelY).blue() << endl;
-    /*for(int indx = 0; indx < im.width(); ++indx){
-        for(int indy = 0; indy < im.height(); ++indy){
-            cout << indx << ", " << indy << " = " << im.pixelColor(indx,indy).red() << endl;
-        }
-    }*/
+    cout << "La imagen dada ha sido procesada exitosamente. Ahora, por favor dirigase al archivo ubicado en la" << endl;
+    cout << " direccion especificada en el archivo instrucciones_de_uso.txt, ubicado en la carpeta Manual_Uso." << endl;
     return 0;
 }
