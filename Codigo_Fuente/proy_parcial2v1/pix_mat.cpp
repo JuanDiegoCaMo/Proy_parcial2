@@ -170,7 +170,7 @@ void pix_mat::create_file(string name)
 string pix_mat::create_string()
 {
     string texto;
-    int cont = 0;
+    int cont = 1;
     for(auto i = pixel.begin(); i != pixel.end(); i++){
         if(*i >= 100){
             for(int mult = 100; mult >= 1; mult/=10){
@@ -190,13 +190,13 @@ string pix_mat::create_string()
             texto.push_back('.');
             texto.push_back('.');
         }
-        if(!cont%3==2){
+        if(cont%3!=0){
             texto.push_back(',');
         }
         else{
             texto.push_back(';');
         }
-        if(cont%12==11) texto.push_back('\n');
+        if(cont%12==0) texto.push_back('\n');
         cont++;
     }
     return texto;
