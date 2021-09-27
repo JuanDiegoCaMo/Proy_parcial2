@@ -11,10 +11,10 @@ class pix_mat
 public:
     pix_mat(QImage image_dir);
     void assignToPix(QImage image_dir);
-    void remuestreo(QImage image_dir, int *auxX, int *auxY);
+    void submuestreo(QImage image_dir, int *auxX, int *auxY);
+    void sobremuestreo(QImage image_dir, int *auxX, int *auxY);
 private:
     vector<short int> pixel;
-    short int **mat;
     int *auxX, *auxY;
 };
 
