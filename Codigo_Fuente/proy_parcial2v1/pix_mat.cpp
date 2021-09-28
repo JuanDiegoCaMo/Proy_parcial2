@@ -7,18 +7,6 @@ pix_mat::pix_mat(QImage image_dir)
     auxY = new int;
     *auxX = image_dir.width();
     *auxY = image_dir.height();
-    if(*auxX == 16 && *auxY == 16) assignToPix(image_dir);
-    else if(*auxX < 16 || *auxY < 16){
-        *auxX = image_dir.width();
-        *auxY = image_dir.height();
-        sobremuestreo(image_dir, auxX, auxY);
-    }
-    else if(*auxX > 16 && *auxY > 16){
-        image_dir = subm_gen(image_dir, auxX, auxY);
-        submuestreo(image_dir, auxX, auxY);
-    }
-    string text = create_string();
-    write_file("fileForTinkercad.txt",text);
 }
 
 void pix_mat::assignToPix(QImage image_dir)
@@ -164,4 +152,14 @@ void pix_mat::write_file(string name, string texto)
     fstream text(name, fstream::out | fstream::binary);
     text <<texto;
     text.close();
+}
+
+int *pix_mat::get_auxX()
+{
+    return auxX;
+}
+
+int *pix_mat::get_auxY()
+{
+    return auxY;
 }

@@ -20,8 +20,20 @@ int main()
     cout << "  Ej: Si el nombre de la imagen es imagen_Colombia.png, la imagen esta en formato PNG." << endl;
     string filename;
     getline(cin,filename);
-    QImage im(filename.c_str());
-    pix_mat matriz_pixeles(im);
+    QImage image_dir(filename.c_str());
+    pix_mat matriz_pixeles(image_dir);
+    int *auxX = matriz_pixeles.get_auxX();
+    int *auxY = matriz_pixeles.get_auxY();
+    if(*auxX == 16 && *auxY == 16) matriz_pixeles.assignToPix(image_dir);
+    else if(*auxX < 16 || *auxY < 16){
+        matriz_pixeles.sobremuestreo(image_dir, auxX, auxY);
+    }
+    else if(*auxX > 16 && *auxY > 16){
+    image_dir = matriz_pixeles.subm_gen(image_dir, auxX, auxY);
+    matriz_pixeles.submuestreo(image_dir, auxX, auxY);
+    }
+    string text = matriz_pixeles.create_string();
+    matriz_pixeles.write_file("fileForTinkercad.txt",text);
     cout << "La imagen dada ha sido procesada exitosamente. Ahora, por favor dirigase al archivo ubicado en la" << endl;
     cout << " direccion especificada en el archivo instrucciones_de_uso.txt, ubicado en la carpeta Manual_Uso." << endl;
     return 0;
