@@ -161,7 +161,7 @@ string pix_mat::create_string()
 
 void pix_mat::write_file(string name, string texto)
 {
-    fstream text(name, fstream::out);
+    fstream text(name, fstream::out | fstream::binary);
     text <<texto;
     text.close();
 }
