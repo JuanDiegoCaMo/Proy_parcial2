@@ -19,6 +19,8 @@ public:
     void create_file(string name);
     string create_string();
     void write_file(string name, string texto);
+    int* get_auxX();
+    int *get_auxY();
 private:
     vector<short int> pixel;
     int *auxX, *auxY;
